@@ -15,7 +15,7 @@
             <th>ISBN</th>
             <th>Aksi</th>
         </tr>
-        <?php foreach ($buku as $b): ?>
+        <?php foreach ($bukuku as $b): ?>
         <tr>
             <td><?= esc($b['judul']) ?></td>
             <td><?= esc($b['pengarang']) ?></td>
