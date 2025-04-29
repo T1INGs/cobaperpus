@@ -1,44 +1,44 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\BukuModel;
+use App\Models\BukukuModel;
 
-class Buku extends BaseController
+class Bukuku extends BaseController
 {
-    protected $bukuModel;
+    protected $bukukuModel;
 
     public function __construct()
     {
-        $this->bukuModel = new BukuModel();
+        $this->bukukuModel = new BukukuModel();
     }
 
     public function index()
     {
-        $data['buku'] = $this->bukuModel->findAll();
-        return view('buku/index', $data);
+        $data['bukuku'] = $this->bukukuModel->findAll();
+        return view('bukuku/index', $data);
     }
 
     public function tambah()
     {
-        return view('buku/tambah');
+        return view('bukuku/tambah');
     }
 
     public function simpan()
     {
-        $this->bukuModel->save([
+        $this->bukukuModel->save([
             'judul' => $this->request->getPost('judul'),
             'pengarang' => $this->request->getPost('pengarang'),
             'penerbit' => $this->request->getPost('penerbit'),
             'tahun_terbit' => $this->request->getPost('tahun_terbit'),
             'isbn' => $this->request->getPost('isbn')
         ]);
-        return redirect()->to('/buku');
+        return redirect()->to('/bukuku');
     }
 
     public function edit($id)
     {
-        $data['buku'] = $this->bukuModel->find($id);
-        return view('buku/edit', $data);
+        $data['buku'] = $this->bukukuModel->find($id);
+        return view('bukuku/edit', $data);
     }
 
     public function update($id)
